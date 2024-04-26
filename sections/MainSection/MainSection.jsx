@@ -8,16 +8,18 @@ import {
   MainContainer,
   VideoContainer,
   CardContainer,
+  StyledImage,
 } from "./elements";
 
-function MainSection({ title, subtitle, mainSectionProps }) {
-  // console.log(mainSectionProps);
+function MainSection({ mainSectionImage, title, subtitle, mainSectionProps }) {
   return (
     <MainSectionWrapper>
       <MainTitle>{title}</MainTitle>
       <SecondaryTitle>{subtitle}</SecondaryTitle>
       <MainContainer>
-        <VideoContainer></VideoContainer>
+        <VideoContainer>
+          <StyledImage src={mainSectionImage.src} alt={mainSectionImage.alt} />
+        </VideoContainer>
         <CardContainer>
           {mainSectionProps.map((item) => (
             <Card

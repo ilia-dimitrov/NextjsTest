@@ -9,31 +9,34 @@ const heroProps = {
 };
 const mainSectionTitles = {
   title: "Managed agency selection",
-  subtitle: "strengthen your onboarding process",
+  subtitle: "Strengthen your onboarding process",
 };
 const mainSectionProps = [
   {
     id: 1,
     icon: "faPenRuler",
     title: "Brief",
-    description:
-      "Complete brief writing or simple guidance on what to include, we've got you covered.",
+    description: `Complete <b>brief writing or simple guidance</b> on what to include, we've got you covered.`,
   },
   {
     id: 2,
     icon: "faChartSimple",
     title: "Search",
     description:
-      "In-depth agency search covering; criteria matching, door knocking and due-dilligence vetting.",
+      "In-depth agency search covering; <b>criteria matching</b>, door knocking and due-dilligence vetting.",
   },
   {
     id: 3,
     icon: "faPeopleArrows",
     title: "Pitch",
     description:
-      "Comprehensive pitch management, including comms, diary management and pitch hosting.",
+      "Comprehensive <b>pitch management</b>, including comms, diary management and pitch hosting.",
   },
 ];
+const mainSectionImage = {
+  src: "/img/video.png",
+  alt: "Main Section Image",
+};
 
 export default function Home() {
   return (
@@ -48,7 +51,11 @@ export default function Home() {
       </>
       <div>
         <Hero {...heroProps} />
-        <MainSection {...{ ...mainSectionTitles, mainSectionProps }} />
+        <MainSection
+          {...mainSectionTitles}
+          mainSectionProps={mainSectionProps}
+          mainSectionImage={mainSectionImage}
+        />
       </div>
     </>
   );

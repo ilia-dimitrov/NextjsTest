@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPenRuler,
@@ -10,8 +10,9 @@ import {
   CardLeft,
   CardRight,
   CardTitle,
-  CardDescription,
   CardIcon,
+  IndividualCard,
+  CardDescription,
 } from "./elements";
 
 const getIcon = (iconName) => {
@@ -29,17 +30,24 @@ const getIcon = (iconName) => {
 
 const Card = ({ title, description, icon }) => {
   const iconToUse = getIcon(icon);
+  const [isActive, setIsActive] = useState(false);
+
+  const handleCardClick = () => {
+    setIsActive(!isActive);
+  };
 
   return (
-    <CardLeft>
-      <CardIcon>
-        <FontAwesomeIcon icon={iconToUse} />
-      </CardIcon>
+    <IndividualCard onClick={handleCardClick} isActive={isActive}>
+      <CardLeft>
+        <CardIcon>
+          <FontAwesomeIcon icon={iconToUse} />
+        </CardIcon>
+      </CardLeft>
       <CardRight>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardTitle isActive={isActive}>{title}</CardTitle>
+        <CardDescription dangerouslySetInnerHTML={{ __html: description }} />
       </CardRight>
-    </CardLeft>
+    </IndividualCard>
   );
 };
 
