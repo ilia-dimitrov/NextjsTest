@@ -16,8 +16,13 @@ export const MainSectionWrapper = styled(SectionContainer)`
   background-repeat: no-repeat;
   background-size: cover;
   background-size: 50%;
-  background-position-x: 28%;
-  background-position-y: 63%;
+  background-position: 28% 63%;
+  ${"" /* media query */}
+  @media screen and (max-width: 1024px) {
+    margin-top: 280px;
+    background-size: 99%;
+    background-position: 800% 23%;
+  }
 `;
 export const MainTitle = styled((props) => <SectionBigHeading {...props} />)`
   margin: 0;
@@ -39,6 +44,10 @@ export const MainContainer = styled((props) => <SectionContainer {...props} />)`
   justify-content: space-evenly;
   align-items: center;
   max-width: 1000px;
+  ${"" /* media query */}
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledImage = styled.img`

@@ -15,9 +15,11 @@ export const IndividualCard = styled.div`
   margin-bottom: 35px;
   margin-left: 20px;
   border-radius: 8px;
-  border: ${({ isActive }) =>
-    isActive ? "2px solid blue" : "2px solid transparent"};
   width: fit-content;
+
+  &:hover {
+    border-color: blue;
+  }
 `;
 
 export const CardLeft = styled.div`
@@ -30,20 +32,24 @@ export const CardLeft = styled.div`
 export const CardRight = styled.div`
   min-height: 140px;
   padding-right: 25px;
-
   max-width: 300px;
   width: auto;
 `;
 
-export const CardTitle = styled(SectionInnerHeading).attrs(({ isActive }) => ({
+export const CardTitle = styled(SectionInnerHeading).attrs(() => ({
   as: "h4",
 }))`
   font-size: 20px;
   font-weight: 800;
   margin: 0;
   padding-top: 20px;
-  color: ${({ isActive }) => (isActive ? "blue" : "black")};
-  text-decoration: ${({ isActive }) => (isActive ? "underline" : "none")};
+  color: black;
+  transition: color 0.3s ease;
+
+  ${IndividualCard}:hover & {
+    color: blue;
+    text-decoration: underline;
+  }
 `;
 
 export const CardDescription = styled(SectionParagraph)`
